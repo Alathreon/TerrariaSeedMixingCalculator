@@ -2,6 +2,52 @@ const ALLSEEDS = [];
 
 const combinationEffects = [];
 
+const EFFECTS_CATEGORIES = {
+    'worldgen': [ 'biome', 'paint', 'loot', 'trap', ],
+    'spawning': [ 'location', 'townnpc' ],
+    'passive': [ 'player', 'environment' ],
+    'balance': [ 'enemeyai', 'enemyspawning', 'droprate', 'armor', 'accessory', 'equipment', 'weapon', 'shop' ],
+    'generating': [ 'background', 'moon', 'music', 'progressbar', 'text', 'minigame' ]
+}
+
+const EFFECTS_REVERSE_CATEGORIES = new Map(Object.keys(EFFECTS_CATEGORIES).flatMap(e => EFFECTS_CATEGORIES[e].map(s => [s, e])));
+
+const EFFECTS_CATEGORIES_NAMES = {
+    'worldgen': 'World Generation',
+    'spawning': 'Spawning',
+    'passive': 'Passive Effects',
+    'balance': 'Balance Changes',
+    'generating': 'While Generating',
+    'surface': 'Surface',
+
+    'biome': 'Biome',
+    'paint': 'Paint',
+    'loot': 'Loot',
+    'trap': 'Trap',
+
+    'location': 'Locations',
+    'townnpc': 'Town NPCs',
+
+    'player': 'Player',
+    'environment': 'Environment',
+
+    'enemeyai': 'Enemy AI',
+    'enemyspawning': 'Enemey Spawning',
+    'droprate': 'Drop Rates',
+    'armor': 'Armors',
+    'accessory': 'Accessories',
+    'equipment': 'Equipments',
+    'weapon': 'Weapons',
+    'shop': 'Shops',
+
+    'background': 'Background',
+    'moon': 'Moon',
+    'music': 'Music',
+    'progressbar': 'Progress Bar',
+    'text': 'Text',
+    'minigame': 'Minigame',
+}
+
 function addSeed(name, codes, special, feature, description) {
     const theSeed = {
         'kind': 'SEED',
