@@ -1,17 +1,18 @@
-const seeds = [];
+const ALLSEEDS = [];
 
 const combinationEffects = [];
 
-function addSeed(name, codes, special, description) {
+function addSeed(name, codes, special, feature, description) {
     const theSeed = {
         'kind': 'SEED',
         'name': name,
         'codes': codes,
         'realCodes': codes.map(c => c.toLowerCase().replaceAll('[^0-9a-z]', '')),
         'description': description,
-        'special': special
+        'special': special,
+        'feature': feature
     }
-    seeds.push(theSeed);
+    ALLSEEDS.push(theSeed);
     return theSeed;
 }
 

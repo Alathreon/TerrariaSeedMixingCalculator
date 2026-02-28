@@ -1,11 +1,16 @@
 function init(root) {
+    initIndex();
+    insertSeeds(root, ALLSEEDS);
+    root.find('.search').on('input', () => search(root));
+    updateEffects(root);
+}
+
+function insertSeeds(root, seeds) {
     let seedList = root.find('.seed-list');
+    seedList.children().remove();
     for(let seed of seeds) {
         seedList.append(createSeedCard(root, seed));
     }
-    initIndex();
-    root.find('.search').on('input', () => search(root));
-    updateEffects(root);
 }
 
 function createSeedCard(root, seed) {
@@ -39,7 +44,7 @@ function selectSeed(root, seed) {
         .on('click', () => unselectSeed(root, seed));
     selectedSeeds.append(node);
     if(seed.name === 'Zenith') {
-        seeds.filter(s => s.special && s.name !== 'Skyblock').forEach(s => selectSeed(root, s));
+        ALLSEEDS.filter(s => s.special && s.name !== 'Skyblock').forEach(s => selectSeed(root, s));
     }
     updateEffects(root);
 }
