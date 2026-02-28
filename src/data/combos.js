@@ -434,7 +434,52 @@ addCombo([forTheWorthy], [
 addCombo([celebrationMk10], [
     { 'categories': ['shop'], 'description': 'Princess sells the Slime Staff, Flask of Party, and Heart Lantern, as well as Sandstorm in a Bottle while in the Desert and Terragrim during Blood Moon. After pirates are defeated, she sells different pirate items during different moon phases.' },
     { 'categories': ['paint'], 'description': 'Generated trees and mushrooms are painted random colors.' },
+    { 'categories': ['enemyspawning'], 'description': 'Fairies are more likely to be pink.' },
+    { 'categories': ['loot'], 'description': 'Palm trees drop a bit of extra wood.' },
+    { 'categories': ['enemyspawning'], 'description': 'Mimics are more common and Jungle Mimics may spawn in the Jungle.' },
+    { 'categories': ['enemyspawning'], 'description': 'Golden slimes may spawn.' },
+    { 'categories': ['environment'], 'description': 'Blood Moons and Birthday Parties are more common.' },
+    { 'categories': ['enemyspawning'], 'description': 'Fireflies and butterflies are more likely.' },
+    { 'categories': ['enemyai'], 'description': 'Many bosses are twice as small.' },
+    { 'categories': ['armor'], 'description': 'The Wizard Hat provides an additional summon slot.' },
+    { 'categories': ['droprate', 'armor'], 'description': 'Dev Armor sets are 2x as likely to drop.' },
+    { 'categories': ['droprate'], 'description': 'Halloween- and Christmas-themed hearts and mana stars can drop all year round.' },
+    { 'categories': ['armor'], 'description': 'Fallen stars are painted pink.' },
+    { 'categories': ['shop'], 'description': 'The Tax Collector gives twice as much money.' },
+    { 'categories': ['shop'], 'description': 'The Rod of Discord is more likely to drop.' },
+    { 'categories': ['player'], 'description': 'The player bursts into confetti upon death.' },
+    { 'categories': ['player'], 'description': 'Respawn time is cut in half.' },
 ]);
+
+addCombo([celebrationMk10, seedNot(forTheWorthy), seedNot(skyblock)], [
+    { 'categories': ['enemyspawning'], 'description': 'Fairies are more likely to spawn underground.' },
+    { 'categories': ['enemyspawning'], 'description': 'Underground houses have a 50% chance to be converted to rainbow brick.' },
+]);
+
+addCombo([celebrationMk10, forTheWorthy, seedNot(skyblock)], [
+    { 'categories': ['enemyspawning'], 'description': 'Underground houses are rarely converted to rainbow brick.' },
+]);
+
+addCombo([seedNot(celebrationMk10), forTheWorthy], [
+    { 'categories': ['enemyspawning'], 'description': 'Skeletron Prime\'s bombs destroy tiles.' },
+]);
+
+addCombo([celebrationMk10, theConstant, seedNot(forTheWorthy)], [
+    { 'categories': ['player'], 'description': 'Hardcore players qill respawn with less maximum health.' },
+]);
+
+addCombo([seedOr([remix,noSurface])], [
+    { 'categories': ['environment'], 'description': 'Rain does not occur.' },
+]);
+
+addCombo([seedOr([celebrationMk10,theConstant])], [
+    { 'categories': ['environment'], 'description': 'Players make Don\'t Starve sounds when killed.' },
+]);
+
+addCombo([seedNot(remix), seedNot(noSurface), celebrationMk10, seedNot(forTheWorthy)], [
+    { 'categories': ['environment'], 'description': 'Coin rain is more likely.' },
+]);
+
 
 addCombo([celebrationMk10, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'The Shimmer spawns closer to the surface.' },
@@ -459,6 +504,14 @@ addCombo([celebrationMk10, seedNot(skyblock), seedOr([errorWorld, seedNot(noSurf
     { 'categories': ['biome'], 'description': 'A pyramid spawns in the middle of the Desert.' },
 ]);
 
+addCombo([celebrationMk10, seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'Pyramid loot always contains the Pharaoh set.' },
+    { 'categories': ['biome'], 'description': 'Shimmer can spawn outside of the main Aether.' },
+    { 'categories': ['loot'], 'description': 'More buried chests spawn.' },
+    { 'categories': ['loot'], 'description': 'The chances for a Lava Charm to be generated in a Chest is increased from 1/20 (5%) to 1/15 (6.67%).' },
+   { 'categories': ['loot'], 'description': 'More ore is generated when altars are smashed.' },
+]);
+
 addCombo([seedOr([celebrationMk10, rainbowStuff])], [
     { 'categories': ['loot'], 'description': 'Rainbow glowsticks generate.' },
 ]);
@@ -481,7 +534,7 @@ addCombo([theConstant, forTheWorthy, seedNot(remix)], [
 
 
 addCombo([forTheWorthy], [
-    { 'categories': ['trap'], 'description': 'Mining crispy honey block creates lava.' },
+    { 'categories': ['trap'], 'description': 'Crispy honey block sets the player on fire, and mining it creates lava.' },
 ]);
 
 
@@ -731,5 +784,21 @@ addCombo([forTheWorthy, seedNot(notTheBees), seedNot(celebrationMk10)], [
 
 addCombo([remix, seedNot(drunk), seedNot(forTheWorthy)], [
     { 'categories': ['biome'], 'description': 'Sky islands are evil and have flesh or lesion chests.' },
+]);
+
+addCombo([noTraps, secretSeedsCount(4,-1, actuallyNoTraps), forTheWorthy, seedNot(celebrationMk10), seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'Many Life Crystals become Life Crystal Boulders.' },
+]);
+
+addCombo([noTraps, secretSeedsCount(4,-1, actuallyNoTraps), seedOr([seedNot(forTheWorthy), celebrationMk10]), seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'Some Life Crystals become Life Crystal Boulders.' },
+]);
+
+addCombo([forTheWorthy, seedOr([seedNot(celebrationMk10), remix])], [
+    { 'categories': ['loot'], 'description': 'Broken pots or shaken trees can drop lit bombs.' },
+]);
+
+addCombo([forTheWorthy, celebrationMk10, seedNot(remix)], [
+    { 'categories': ['loot'], 'description': 'Broken pots or shaken trees can drop happy bombs.' },
 ]);
 
