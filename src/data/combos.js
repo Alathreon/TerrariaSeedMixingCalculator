@@ -10,7 +10,7 @@ addCombo([notTheBees, noTraps, seedNot(remix)],
     ['Dart traps are replaced with Jungle Temple traps and Spikes are replaced by Wooden Spikes.']
 );
 
-addCombo([seedOr([notTheBees, noTraps, pooEverywhere]), seedNot(actuallyNoTraps), secretSeedsCount(0,3,actuallyNoTraps)],
+addCombo([seedOr([notTheBees, noTraps, pooEverywhere]), seedNot(actuallyNoTraps), secretSeedsCount(0,3, actuallyNoTraps)],
     ['Poo boulders may spawn.']
 );
 
@@ -62,19 +62,19 @@ addCombo([notTheBees],
     ['No shell piles can spawn.']
 );
 
-addCombo([seedNot(skyblock), noTraps, seedOr([celebrationMk10,notTheBees])],
+addCombo([seedNot(skyblock), noTraps, seedOr([celebrationMk10, notTheBees])],
     ['Three times as many statues generate.']
 );
 
-addCombo([seedNot(skyblock), noTraps, seedNot(celebrationMk10),seedNot(notTheBees)],
+addCombo([seedNot(skyblock), noTraps, seedNot(celebrationMk10), seedNot(notTheBees)],
     ['Fifteen times as many statues generate.']
 );
 
-addCombo([seedOr([notTheBees,remix])],
+addCombo([seedOr([notTheBees, remix])],
     ['Water chests can spawn in any liquid, including lava or honey.']
 );
 
-addCombo([seedOr([skyblock,notTheBees])],
+addCombo([seedOr([skyblock, notTheBees])],
     ['Gem caves do not spawn.']
 );
 
@@ -82,53 +82,46 @@ addCombo([celebrationMk10, seedNot(skyblock), seedNot(notTheBees)],
     ['50% more gem caves spawn.']
 );
 
-addCombo([seedOr([skyblock,notTheBees,worldIsFrozen]), seedNot(remix),seedNot(theConstant)],
+addCombo([seedOr([skyblock, notTheBees, worldIsFrozen]), seedNot(remix), seedNot(theConstant)],
     ['Moss caves do not spawn.']
 );
-addCombo([seedOr([skyblock, worldIsFrozen]), seedOr([remix,theConstant])],
+addCombo([seedOr([skyblock, worldIsFrozen]), seedOr([remix, theConstant])],
     ['Moss caves do not spawn.']
 );
 
-addCombo([notTheBees,theConstant],
+addCombo([notTheBees, theConstant],
     ['Moss caves spawn in the Jungle.']
 );
 
-addCombo([celebrationMk10,notTheBees,seedNot(remix)],
+addCombo([celebrationMk10, notTheBees, seedNot(remix)],
     ['The guide named Andrew is replaced by a Witch Doctor named Victor.']
 );
 
-addCombo([celebrationMk10,notTheBees,seedNot(remix)],
+addCombo([celebrationMk10, notTheBees, seedNot(remix)],
     ['The princess named Yorai is replaced by a merchant named Charles.']
 );
 
-addCombo([seedNot(celebrationMk10),seedNot(worldIsInfected),seedNot(vampirism), seedNot(remix), notTheBees, seedNot(theConstant)],
+addCombo([seedNot(celebrationMk10), seedNot(worldIsInfected), seedNot(vampirism), seedNot(remix), notTheBees, seedNot(theConstant)],
     ['The guide is replaced by a merchant.']
 );
 
 addCombo([notTheBees, seedNot(remix)],
-    ['No thin ice mini-biomes spawn.']
+    ['No thin ice mini-biomes spawn.', 'No campsites mini-biomes spawn.', 'No mining explosive mini-biomes spawn.']
 );
 
-addCombo([notTheBees, seedNot(remix)],
-    ['No campsites mini-biomes spawn.']
-);
-addCombo([notTheBees, seedNot(remix)],
-    ['No mining explosive mini-biomes spawn.']
-);
-
-addCombo([seedOr([forTheWorthy,noTraps]), seedNot(notTheBees), seedNot(actuallyNoTraps)],
+addCombo([seedOr([forTheWorthy, noTraps]), seedNot(notTheBees), seedNot(actuallyNoTraps)],
     ['50% more explosive traps spawn.']
 );
 
-addCombo([seedOr([notTheBees,actuallyNoTraps])],
+addCombo([seedOr([notTheBees, actuallyNoTraps])],
     ['No lava traps spawn.']
 );
 
-addCombo([seedNot(notTheBees),seedNot(actuallyNoTraps), noTraps],
+addCombo([seedNot(notTheBees), seedNot(actuallyNoTraps), noTraps],
     ['5 times as many lava traps spawn.']
 );
 
-addCombo([seedNot(notTheBees),seedNot(actuallyNoTraps), seedNot(noTraps), forTheWorthy],
+addCombo([seedNot(notTheBees), seedNot(actuallyNoTraps), seedNot(noTraps), forTheWorthy],
     ['2 times as many lava traps spawn.']
 );
 
