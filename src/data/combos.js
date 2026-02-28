@@ -121,7 +121,7 @@ addCombo([remix, drunk, seedOr([seedNot(celebrationMk10), forTheWorthy]), seedNo
     ['Both crimson and corruption sky islands spawn with flesh and lesion chests.']
 );
 
-addCombo([remix, seedNot(drunk)],
+addCombo([remix, seedNot(drunk), seedNot(forTheWorthy)],
     ['Sky islands are evil and have flesh or lesion chests.']
 );
 
@@ -702,3 +702,6 @@ addCombo([remix, seedNot(skyblock)],
     ['The middle portion of the Underworld is an ash platform, with the outer edges of the world having ruined houses.', '50% more surface tunnels spawn.']
 );
 
+addCombo([forTheWorthy, seedNot(notTheBees), seedNot(celebrationMk10)],
+    ['Sky islands are evil and have locked chests.']
+);
