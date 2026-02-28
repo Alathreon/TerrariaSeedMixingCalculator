@@ -6,7 +6,7 @@ const EFFECTS_CATEGORIES = {
     'worldgen': [ 'biome', 'paint', 'loot', 'trap' ],
     'spawning': [ 'location', 'townnpc' ],
     'passive': [ 'player', 'environment' ],
-    'balance': [ 'enemeyai', 'enemyspawning', 'droprate', 'armor', 'accessory', 'equipment', 'weapon', 'shop' ],
+    'balance': [ 'enemyai', 'enemyspawning', 'droprate', 'armor', 'accessory', 'equipment', 'weapon', 'shop' ],
     'generating': [ 'background', 'moon', 'music', 'progressbar', 'text', 'minigame' ]
 }
 
@@ -31,7 +31,7 @@ const EFFECTS_CATEGORIES_NAMES = {
     'player': 'Player',
     'environment': 'Environment',
 
-    'enemeyai': 'Enemy AI',
+    'enemyai': 'Enemy AI',
     'enemyspawning': 'Enemey Spawning',
     'droprate': 'Drop Rates',
     'armor': 'Armors',
@@ -64,6 +64,7 @@ function addSeed(name, codes, special, feature, description) {
 
 function addCombo(seeds, effects) {
     for(let effect of effects) {
+        if(effect.categories.length == 0) throw `Effect "${effect.description}" has no category`;
         for(let category of effect.categories) {
             if(!EFFECTS_REVERSE_CATEGORIES.has(category)) {
                 throw `Invalid category "${category}" in effect "${effect.description}"`;
