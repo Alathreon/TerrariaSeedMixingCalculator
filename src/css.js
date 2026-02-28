@@ -16,4 +16,9 @@ function injectCSS() {
     $('.calculator p').css({
         'margin': '0'
     });
+    $('.calculator .effects-categories').css({
+        'border': 'black solid 1px',
+        'display': 'flex',
+        'flex-flow': 'wrap'
+    });
 }
