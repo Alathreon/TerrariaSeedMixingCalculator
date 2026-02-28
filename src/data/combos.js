@@ -163,3 +163,7 @@ addCombo([notTheBees, seedOr([theConstant, drunk, celebrationMk10]), seedNot(rem
 addCombo([notTheBees, remix],
     ['A rectangular strip of hive spawns near the top of the world, stretching across almost the entire world (except the oceans). A strip of Crispy Honey Block spawns underneath that.']
 );
+
+addCombo([notTheBees, seedOr(seedNot(theConstant), remix)],
+    ['Slush blocks are converted to honey.']
+);
