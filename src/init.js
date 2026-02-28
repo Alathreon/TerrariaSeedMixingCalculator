@@ -62,6 +62,6 @@ function updateEffects(root) {
     let seeds = root.find('.selected-seeds').children().map((i, e) => $(e).attr('name')).get();
     let effects = findEffects(seeds);
     for(let effect of effects) {
-        effectsNode.append(`<li>${effect}</li>`)
+        effectsNode.append(`<li>${effect.description}</li>`)
     }
 }
