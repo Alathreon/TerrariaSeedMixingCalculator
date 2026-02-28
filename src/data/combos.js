@@ -801,4 +801,3 @@ addCombo([forTheWorthy, seedOr([seedNot(celebrationMk10), remix])], [
 addCombo([forTheWorthy, celebrationMk10, seedNot(remix)], [
     { 'categories': ['loot'], 'description': 'Broken pots or shaken trees can drop happy bombs.' },
 ]);
-
