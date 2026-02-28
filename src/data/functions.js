@@ -3,7 +3,7 @@ const ALLSEEDS = [];
 const combinationEffects = [];
 
 const EFFECTS_CATEGORIES = {
-    'worldgen': [ 'biome', 'paint', 'loot', 'trap', ],
+    'worldgen': [ 'biome', 'paint', 'loot', 'trap' ],
     'spawning': [ 'location', 'townnpc' ],
     'passive': [ 'player', 'environment' ],
     'balance': [ 'enemeyai', 'enemyspawning', 'droprate', 'armor', 'accessory', 'equipment', 'weapon', 'shop' ],
@@ -63,6 +63,13 @@ function addSeed(name, codes, special, feature, description) {
 }
 
 function addCombo(seeds, effects) {
+    for(let effect of effects) {
+        for(let category of effect.categories) {
+            if(!EFFECTS_REVERSE_CATEGORIES.has(category)) {
+                throw `Invalid category "${category}" in effect "${effect.description}"`;
+            }
+        }
+    }
     combinationEffects.push({
         'seeds': seeds,
         'effects': effects
