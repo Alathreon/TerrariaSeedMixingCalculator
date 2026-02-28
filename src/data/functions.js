@@ -64,6 +64,7 @@ function addSeed(name, codes, special, feature, description) {
 
 function addCombo(seeds, effects) {
     for(let effect of effects) {
+        if(effect.categories.length == 0) throw `Effect "${effect.description}" has no category`;
         for(let category of effect.categories) {
             if(!EFFECTS_REVERSE_CATEGORIES.has(category)) {
                 throw `Invalid category "${category}" in effect "${effect.description}"`;
