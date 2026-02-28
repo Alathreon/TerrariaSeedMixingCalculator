@@ -9,20 +9,7 @@ function addSeed(name, codes, special, description) {
         'codes': codes,
         'realCodes': codes.map(c => c.toLowerCase().replaceAll('[^0-9a-z]', '')),
         'description': description,
-        'special': special,
-        'exist': true,
-        'not': function() {
-            return {
-                'kind': this.kind,
-                'name': this.name,
-                'codes': this.codes,
-                'realCodes': this.realCodes,
-                'description': this.description,
-                'special': this.special,
-                'exist': !this.exist,
-                'not': this.not
-            };
-        }
+        'special': special
     }
     seeds.push(theSeed);
     return theSeed;
@@ -35,19 +22,36 @@ function addCombo(seeds, effects) {
     })
 }
 
-function secretSeedsCount(min, max) {
+function secretSeedsCount(min, max, seed) {
+    if(!seed['kind']) throw 'Missing field "kind"';
     return {
         'kind': 'COUNT',
         'min': min,
-        'max': max
+        'max': max,
+        'seed': seed ? seed : null
     }
 }
 
 function seedOr(seeds) {
-    if(seeds.some(s => s.kind != 'SEED')) throw 'Can\'t have an union with non seeds';
+    if(!Array.isArray(seeds)) throw '"seeds" isn\'t an array"';
     return {
         'kind': 'OR',
         'seeds': seeds
     }
 }
 
+function seedAnd(seeds) {
+    if(!Array.isArray(seeds)) throw '"seeds" isn\'t an array"';
+    return {
+        'kind': 'AND',
+        'seeds': seeds
+    }
+}
+
+function seedNot(seed) {
+    if(!seed['kind']) throw 'Missing field "kind"';
+    return {
+        'kind': 'NOT',
+        'seed': seed
+    }
+}
