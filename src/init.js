@@ -5,6 +5,7 @@ function init(root) {
     }
     initIndex();
     root.find('.search').on('input', () => search(root));
+    updateEffects(root);
 }
 
 function createSeedCard(root, seed) {
