@@ -3,6 +3,22 @@ addCombo([seedOr([paintEverythingGray, paintEverythingNegative]), secretSeedsCou
 );
 
 
+addCombo([drunk],
+    ['Both world evils spawn.', 'Both types of ore spawn in each category.']
+);
+
+addCombo([drunk, seedNot(noSurface)],
+    ['The Dungeon Guardian won\'t spawn until 70 ft below the surface.']
+);
+
+addCombo([seedOr([drunk, celebrationMk10]), seedNot(skyblock), seedNot(roundLandmasses), seedNot(noSurface)],
+    ['Ocean caves always spawn.']
+);
+
+addCombo([remix, seedNot(drunk), seedNot(celebrationMk10), seedNot(skyblock), seedNot(roundLandmasses), seedNot(noSurface)],
+    ['Ocean caves are more common.']
+);
+
 addCombo([notTheBees, seedNot(theConstant), seedNot(skyblock), seedNot(drunk), seedNot(celebrationMk10), seedNot(remix)],
     ['Most of the world is converted to Jungle.']
 );
@@ -37,12 +53,24 @@ addCombo([remix, drunk, seedOr([seedNot(celebrationMk10), forTheWorthy])],
     ['Both crimson and corruption sky islands spawn.']
 );
 
+addCombo([seedOr([forTheWorthy, seedAnd([remix, seedNot(celebrationMk10)])]), seedOr([remix, seedNot(notTheBees)]), seedOr([remix, seedNot(drunk), seedOr([celebrationMk10, seedNot(forTheWorthy)])])],
+    ['Sky islands are corrupted with the world evil.']
+);
+
 addCombo([drunk, seedNot(remix)],
     ['Snow sky islands and desert sky islands may spawn.']
 );
 
-addCombo([notTheBees, celebrationMk10, seedNot(drunk), seedNot(extraLivingTrees)],
+addCombo([notTheBees, celebrationMk10, seedNot(drunk), seedOr([seedNot(noSurface), extraLivingTrees])],
     ['A very large number of living trees are added, and can spawn in places they usuall wouldn\'t.']
+);
+
+addCombo([seedOr([drunk,seedAnd([remix,seedNot(celebrationMk10)])]), seedOr([seedNot(noSurface), extraLivingTrees])],
+    ['There are more Living Trees than usual.']
+);
+
+addCombo([seedNot(drunk), celebrationMk10, seedOr([seedNot(noSurface), extraLivingTrees])],
+    ['There are many more Living Trees than usual.']
 );
 
 addCombo([notTheBees, seedNot(celebrationMk10)],
@@ -184,6 +212,10 @@ addCombo([notTheBees, seedOr([theConstant, remix])],
     ['A few Larvae are scattered around the world.']
 );
 
+addCombo([notTheBees, seedNot(theConstant)],
+    ['Living Trees are replace by Living Mahogany and Mahogany Leaf Blocks.']
+);
+
 addCombo([notTheBees, noTraps, seedNot(theConstant), seedNot(remix)],
     ['Very many Larvae are scattered around the world.']
 );
@@ -221,9 +253,8 @@ addCombo([notTheBees, celebrationMk10, seedNot(remix)],
 );
 
 addCombo([drunk, celebrationMk10, seedNot(remix), seedNot(notTheBees)],
-    ['Half of the world generates with Shimmer replacing water.', 'The Dungeon is buried but no tree is visible above it.', 'There is no Dungeon Guardian, and Skeletron does not have to be fought to enter the Dungeon.', 'Palm trees drop triple wood and ash trees drop triple wood.', 'The Party Girl is replaced by a Painter named Jim', 'Slimefors is invincible, with maximum health, 99999 defense, and inability to be attacked.', 'Snow (Otherworldly) will play during world generation, the background will be the Hallow, and heart-shaped clouds will appear.', 'Sand is painted rainbow and sand walls are ainted black.']
+    ['Half of the world generates with Shimmer replacing water.', 'The Dungeon is buried but no tree is visible above it.', 'There is no Dungeon Guardian, and Skeletron does not have to be fought to enter the Dungeon.', 'Palm trees drop triple wood and ash trees drop triple wood.', 'The Party Girl is replaced by a Painter named Jim', 'Slimefors is invincible, with maximum health, 99999 defense, and inability to be attacked.', 'Snow (Otherworldly) will play during world generation, the background will be the Hallow, and heart-shaped clouds will appear.', 'Sand is painted rainbow and sand walls are ainted black.', 'Extra gel can drop from slimes.']
 );
-
 
 addCombo([drunk, seedNot(remix), seedNot(celebrationMk10), vampirism],
     ['Crimson (Otherworldly) will play during world generation.']
@@ -241,12 +272,24 @@ addCombo([drunk, seedNot(remix), seedNot(celebrationMk10), seedNot(vampirism), s
     ['The Console Title Music will play during world generation.']
 );
 
+addCombo([drunk, seedOr([remix, seedNot(celebrationMk10), notTheBees]), seedNot(forTheWorthy), seedNot(theConstant)],
+    ['Clouds during world generation will be replaced with Redigit\'s head.']
+);
+
+addCombo([drunk, seedOr([remix, seedNot(celebrationMk10), notTheBees]), forTheWorthy, seedNot(theConstant)],
+    ['Clouds during world generation will be replaced with the Eye of Cthulhu.']
+);
+
+addCombo([drunk, seedOr([remix, seedNot(celebrationMk10), notTheBees]), theConstant],
+    ['Clouds during world generation will be replaced with Wilson, Willow, Maxwell and Charlie from Don\'t Starve.']
+);
+
 addCombo([remix],
     ['The logo flips upside down and rotates during world generation.']
 );
 
 addCombo([seedNot(remix), drunk, seedNot(notTheBees)],
-    ['The rotates during world generation.']
+    ['The logo rotates during world generation.']
 );
 
 addCombo([drunk, seedOr([seedNot(celebrationMk10), notTheBees, remix]), vampirism],
@@ -255,6 +298,10 @@ addCombo([drunk, seedOr([seedNot(celebrationMk10), notTheBees, remix]), vampiris
 
 addCombo([drunk, seedNot(vampirism), notTheBees],
     ['The background during world generation is the Jungle.']
+);
+
+addCombo([drunk, seedNot(vampirism), seedNot(notTheBees), seedOr([remix, seedNot(celebrationMk10)])],
+    ['The background during world generation is a Glowing Mushroom biome.']
 );
 
 addCombo([notTheBees, seedNot(forTheWorthy)],
@@ -303,4 +350,24 @@ addCombo ([drunk, notTheBees],
 
 addCombo([seedOr([notTheBees, noTraps, pooEverywhere]), secretSeedsCount(4,-1, actuallyNoTraps)],
     ['Poo boulders may spawn.']
+);
+
+addCombo([drunk, forTheWorthy, seedNot(remix)],
+    ['The generation style and shape of the world evils flips.']
+);
+
+addCombo([theConstant, seedNot(drunk)],
+    ['Iron and gold will always be chosen as ores.']
+);
+
+addCombo([drunk, seedOr([seedNot(theConstant),remix])],
+    ['The Snow and Jungle biomes spawn on the same side of the world.']
+);
+
+addCombo([seedOr([drunk,surfaceIsDesert]), seedNot(skyblock), seedNot(noSurface)],
+    ['Pyramids are more likely.']
+);
+
+addCombo([drunk, seedNot(remix)],
+    ['The middle portion of the Underworld is lava, with the outer edges having ruined houses.']
 );
