@@ -37,6 +37,16 @@ addCombo([seedOr([drunk, forTheWorthy]), seedNot(skyblock)], [
     { 'categories': ['loot'], 'description': 'Red Potion can spawn in chests.' },
 ]);
 
+addCombo([forTheWorthy], [
+    { 'categories': ['player'], 'description': 'Red Potion has beneficial effects.' },
+    { 'categories': ['environment'], 'description': 'Trees and cacti generally require fewer hits to destroy.' },
+    { 'categories': ['environment'], 'description': 'The player\'s light vision is reduced by 12% in the Jungle Temple and by 6% in the Dungeon' },
+    { 'categories': ['weapon'], 'description': 'The Star Cannon and Super Star Shooter only deal 90% damage and their use time is increased by 10%.' },
+]);
+
+addCombo([forTheWorthy, seedNot(skyblock)], [
+    { 'categories': ['trap'], 'description': 'Spikes are 3x more common in the Dungeon.' },
+]);
 
 addCombo([remix, seedNot(drunk)], [
     { 'categories': ['biome'], 'description': 'Beehives can be larger.' },
@@ -101,9 +111,14 @@ addCombo([celebrationMk10, seedNot(noTraps), secretSeedsCount(4,-1, actuallyNoTr
     { 'categories': ['trap'], 'description': 'Some Rainbow Boulders spawn.' },
 ]);
 
-addCombo([celebrationMk10, noTraps, secretSeedsCount(4,-1, actuallyNoTraps)], [
+addCombo([celebrationMk10, noTraps, secretSeedsCount(4,-1, actuallyNoTraps), seedNot(remix)], [
     { 'categories': ['trap'], 'description': 'Many Rainbow Boulders spawn.' },
 ]);
+
+addCombo([celebrationMk10, noTraps, secretSeedsCount(4,-1, actuallyNoTraps), seedNot(remix)], [
+    { 'categories': ['trap'], 'description': 'A moderate amount of Rainbow Boulders spawn.' },
+]);
+
 
 addCombo([drunk, seedNot(noSurface)], [
     { 'categories': ['townnpc'], 'description': 'The Dungeon Guardian won\'t spawn until 70 ft below the surface.' },
@@ -264,6 +279,7 @@ addCombo([seedNot(seedOr([skyblock, worldIsFrozen, seedAnd([notTheBees, seedNot(
 
 addCombo([remix, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Moss caves spawn in the middle 40% of the world, and are 50% more common.' },
+    { 'categories': ['biome'], 'description': '3x as many altars spawn.' },
 ]);
 
 addCombo([seedNot(remix), seedNot(celebrationMk10), forTheWorthy], [
@@ -282,6 +298,24 @@ addCombo([seedNot(remix), celebrationMk10, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Half of all moss caves are Neon Moss, and twice as many moss caves spawn.' },
 ]);
 
+addCombo([noTraps, seedNot(skyblock)], [
+    { 'categories': ['trap'], 'description': 'Twice as many Friendly Boulders can spawn.' },
+    { 'categories': ['trap'], 'description': 'Spider Boulders, Ghoulders, and Lava Boulders are more common.' },
+   { 'categories': ['trap'], 'description': 'Gas Traps spawn in chests.' },
+  { 'categories': ['trap'], 'description': 'Traps can spawn on the surface.' },
+]);
+
+addCombo([noTraps], [
+  { 'categories': ['enemyspawning'], 'description': 'Dart Trap Slimes are more common.' },
+]);
+
+addCombo([seedOr([noTraps,forTheWorthy])], [
+  { 'categories': ['enemyai'], 'description': 'Dart Trap Slimes can fire more rapidly.' },
+]);
+
+addCombo([seedOr([noTraps, celebrationMk10])], [
+    { 'categories': ['trap'], 'description': 'More Bouncy Boulders spawn.' },
+]);
 
 addCombo([seedOr([forTheWorthy, noTraps]), seedNot(notTheBees), secretSeedsCount(4,-1, actuallyNoTraps)], [
     { 'categories': ['trap'], 'description': '50% more explosive traps spawn.' },
@@ -301,6 +335,14 @@ addCombo([seedNot(notTheBees), secretSeedsCount(4,-1, actuallyNoTraps), seedNot(
 
 addCombo([noTraps, seedNot(notTheBees), seedNot(celebrationMk10)], [
     { 'categories': ['trap'], 'description': 'Traps that are broken by world generation are allowed to remain.' },
+]);
+
+addCombo([extraLiquid, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The world is filled with liquid except for regions marked off with bubble blocks and for space.' },
+]);
+
+addCombo([extraLiquid, seedNot(remix), seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'Lava fills the Underworld.' },
 ]);
 
 addCombo([extraLiquid, skyblock], [
@@ -432,7 +474,6 @@ addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), seedOr([no
 ]);
 
 
-
 addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), seedNot(noTraps), seedOr([seedNot(notTheBees), remix]), forTheWorthy], [
     { 'categories': ['trap'], 'description': 'There are 50% more traps.' },
 ]);
@@ -493,11 +534,15 @@ addCombo([seedOr([forTheWorthy, seedNot(celebrationMk10)]), remix], [
 
 addCombo([forTheWorthy], [
     { 'categories': ['shop'], 'description': 'The Steampunker, if present in pre-Hardmode, does not sell the Blend-o-matic.' },
+    { 'categories': ['loot'], 'description': 'Moon Lord Torso can be found in Locked Gold Chests and Golden Lock Boxes in the Dungeon.' },
    { 'categories': ['trap', 'biome'], 'description': 'Clumps of ash blocks can collapse when mined.' },
-   { 'categories': ['enemyspawning'], 'description': 'Enemies spawn 20% less, but 20% more total enemies can spawn.' },
+   { 'categories': ['enemyspawning'], 'description': 'Enemies spawn 20% more, and 20% more total enemies can spawn.' },
    { 'categories': ['enemyai'], 'description': 'Many bosses have different sizes, mostly being larger.' },
    { 'categories': ['enemyai'], 'description': 'Bosses and enemies have all For the Worth changes to stats and AI, and many bosses reflect Fallen Star projectiles from weapons.' },
    { 'categories': ['player'], 'description': 'Difficulty increases by 1 level. If the game was previously at Master Mode, it is now at Legendary Mode.' },
+   { 'categories': ['player'], 'description': 'Using Gills Potion causes the player to drown when outside of water.' },
+   { 'categories': ['trap'], 'description': 'Tombstones can damage the player.' },
+   { 'categories': ['player'], 'description': 'Blocks take only half as many hits with a pickaxe or drill to break, rounded up.' },
 ]);
 
 addCombo([seedOr([forTheWorthy,remix])], [
@@ -548,10 +593,6 @@ addCombo([seedNot(celebrationMk10), forTheWorthy], [
 
 addCombo([celebrationMk10, theConstant, seedNot(forTheWorthy)], [
     { 'categories': ['player'], 'description': 'Hardcore players qill respawn with less maximum health.' },
-]);
-
-addCombo([seedOr([remix,noSurface])], [
-    { 'categories': ['environment'], 'description': 'Rain does not occur.' },
 ]);
 
 addCombo([seedOr([celebrationMk10,theConstant])], [
@@ -671,6 +712,7 @@ addCombo([drunk, celebrationMk10, seedNot(remix), seedNot(notTheBees)], [
     { 'categories': ['music', 'background'], 'description': 'Snow (Otherworldly) will play during world generation, the background will be the Hallow, and heart-shaped clouds will appear.' },
     { 'categories': ['paint'], 'description': 'Sand is painted rainbow and sand walls are ainted black.' },
     { 'categories': ['loot'], 'description': 'Extra gel can drop from slimes.' },
+    { 'categories': ['armor', 'weapon'], 'description': 'Ash Wood items are weaker.' },
 ]);
 
 addCombo([celebrationMk10, seedNot(skyblock)], [
@@ -678,7 +720,7 @@ addCombo([celebrationMk10, seedNot(skyblock)], [
 ]);
 
 addCombo([celebrationMk10, seedNot(skyblock), forTheWorthy], [
-    { 'categories': ['environment'], 'description': 'Everyone dies when the party ends.' },
+    { 'categories': ['environment', 'townnpc'], 'description': 'Everyone dies when the party ends.' },
 ]);
 
 addCombo([theConstant, seedNot(remix), celebrationMk10, seedNot(skyblock)], [
@@ -766,9 +808,35 @@ addCombo([drunk, seedOr([remix, seedNot(celebrationMk10), notTheBees]), theConst
     { 'categories': ['background'], 'description': 'Clouds during world generation will be replaced with Wilson, Willow, Maxwell and Charlie from Don\'t Starve.' },
 ]);
 
-//logo
 addCombo([remix], [
     { 'categories': ['background'], 'description': 'The logo flips upside down and rotates during world generation.' },
+    { 'categories': ['loot', 'weapon'], 'description': 'The Remix weapon swap effects are in place.' },
+    { 'categories': ['shop'], 'description': 'The Remix changes to Pylon placement are in effect.' },
+    { 'categories': ['enemyspawning', 'enemyai'], 'description': 'Remix enemy spawn rate changes and stat changes are in effect.' },
+    { 'categories': ['loot'], 'description': 'Slimes can spawn holding Fallen Stars.' },
+    { 'categories': ['loot'], 'description': 'Shaking Ash Trees in the Underworld can cause Fallen Stars to spawn.' },
+    { 'categories': ['environment'], 'description': 'The player can die by going off the top of the map.' },
+    { 'categories': ['environment'], 'description': 'Flesh and Lesion blocks count when determining if an Evil biome is present.' },
+    { 'categories': ['environment'], 'description': 'Lava now does 200 base contact damage to players, and the duration of the On Fire! debuff is increased to 10.5 / 21 / 26.25 seconds. Additionally, enemies will not take direct contact damage from lava, and will only suffer from the On Fire! debuff for 3 seconds.' },
+     { 'categories': ['environment'], 'description': 'Surface gravity is weaker.' },
+]);
+
+addCombo([noSurface, seedNot(skyblock), seedOr([seedNot(remix),seedNot(randomSpawn)])], [
+    { 'categories': ['location'], 'description': 'Spawn is random and torches are placed around spawn.' },
+]);
+
+addCombo([remix, seedNot(randomSpawn)], [
+    { 'categories': ['location'], 'description': 'The player spawns in the Underworld.' },
+]);
+
+
+addCombo([noSurface, seedNot(skyblock)], [
+    { 'categories': ['environment'], 'description': 'Meteors can fall underground.' },
+]);
+
+//logo
+addCombo([remix], [
+    { 'categories': ['background'], 'description': 'The logo has a boulder as the dot of the \'i\', unless the sun or moon have been grabbed.' },
 ]);
 
 //logo
@@ -805,12 +873,16 @@ addCombo([forTheWorthy, noTraps], [
 ]);
 
 
-addCombo([drunk, celebrationMk10], [
+addCombo([drunk, celebrationMk10, seedNot(skyblock)], [
     { 'categories': ['loot'], 'description': 'Underground Cabins can spawn with Slime Furniture.' },
 ]);
 
-addCombo([notTheBees, celebrationMk10], [
+addCombo([notTheBees, celebrationMk10, seedNot(skyblock)], [
     { 'categories': ['loot'], 'description': 'Underground Cabins can spawn with Bamboo or Honey Furniture.' },
+]);
+
+addCombo([forTheWorthy, seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'Underground Cabins can spawn with Cactus Furniture.' },
 ]);
 
 //these two could be combined
@@ -904,8 +976,16 @@ addCombo([celebrationMk10, seedNot(theConstant)], [
 ]);
 
 addCombo([remix, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The world is reversed, with the layers using the Remix rules for determining the Surface, Underground, Cavern and Ocean biomes. A Glowing Mushroom layer spawns above the Underworld. The Jungle Temple is on the Surface.' },
+    { 'categories': ['biome'], 'description': 'The outer edges of the world are corrupted.' },
+    { 'categories': ['biome'], 'description': 'In Hardmode, one of the outer Corruption portions of the world is converted to Hallow.' },
+    { 'categories': ['biome'], 'description': 'Attempts to generate herbs during world generation are more frequent.' },
     { 'categories': ['biome'], 'description': 'The middle portion of the Underworld is an ash platform, with the outer edges of the world having ruined houses.' },
     { 'categories': ['biome'], 'description': '50% more surface tunnels spawn.' },
+    { 'categories': ['biome'], 'description': 'Sand patches are less common.' },
+    { 'categories': ['loot'], 'description': 'The Flower of Fire is replaced by the Unholy Trident in chests.' },
+   { 'categories': ['loot'], 'description': 'Pots can contain a Slime holding a Fallen Star.' },
+   { 'categories': ['loot'], 'description': 'Rope and Fallen Stars can drop from pots.' },
 ]);
 
 addCombo([forTheWorthy, seedNot(notTheBees), seedNot(celebrationMk10)], [
