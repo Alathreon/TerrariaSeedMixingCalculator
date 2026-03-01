@@ -2,6 +2,10 @@ addCombo([seedOr([paintEverythingGray, paintEverythingNegative]), secretSeedsCou
     { 'categories': ['paint'], 'description': 'All blocks are painted with Echo Coating except for the blocks that outline chunks of land.' },
 ]);
 
+addCombo([forTheWorthy,remix], [
+   { 'categories': ['enemyai'], 'description': 'Mechdusa replaces the Mechanical bosses, and can spawn at night once an altar is broken.' },
+]);
+
 addCombo([seedOr([seedAnd([theConstant,seedOr([drunk, forTheWorthy]), seedNot(celebrationMk10)]),graveyardBloodMoonStart]) ], [
     { 'categories': ['location'], 'description': 'Graveyards spawn across the world.' },
 ]);
@@ -21,13 +25,18 @@ addCombo([remix, seedNot(drunk), seedNot(forTheWorthy)], [
 ]);
 
 addCombo([drunk, seedNot(skyblock)], [
-    { 'categories': ['ore'], 'description': 'Both types of ore spawn in each category.' },
-    { 'categories': ['chest'], 'description': 'Moon Lord Legs and Red Potion can spawn in chests.' },
+    { 'categories': ['loot'], 'description': 'Both types of ore spawn in each category.' },
+    { 'categories': ['loot'], 'description': 'Moon Lord Legs can spawn in chests.' },
     { 'categories': ['trap'], 'description': 'Wooden Spikes generate 3 layers deep instead of 2.' },
     { 'categories': ['biome', 'enemyspawning'], 'description': 'Enemies are more likely to spawn in Bee Hives. Bee Hives are larger and contain more Larvae.' },
     { 'categories': ['biome'], 'description': 'Marble and Granite biomes switch generation styles.' },
     { 'categories': ['biome'], 'description': 'Tunnels from the Jungle surface to the Underground Jungle do not spawn.' },
 ]);
+
+addCombo([seedOr([drunk, forTheWorthy]), seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'Red Potion can spawn in chests.' },
+]);
+
 
 addCombo([remix, seedNot(drunk)], [
     { 'categories': ['biome'], 'description': 'Beehives can be larger.' },
@@ -35,6 +44,19 @@ addCombo([remix, seedNot(drunk)], [
 
 addCombo([theConstant, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Wavy caves generate in the Underground and Cavern layer.' },
+]);
+
+addCombo([theConstant, seedNot(remix)], [
+    { 'categories': ['loot'], 'description': 'Fruit can spawn from pots.' },
+]);
+
+addCombo([theConstant, forTheWorthy, seedNot(remix)], [
+    { 'categories': ['loot'], 'description': 'The Eater of Worlds spawns every time a Shadow Orb is broken, and the Brain of Cthulhu spawns every time a Crimson Heart is broken.' },
+]);
+
+
+addCombo([theConstant, seedNot(skyblock), seedNot(noSurface)], [
+    { 'categories': ['biome'], 'description': 'Marble piles generate on the surface.' },
 ]);
 
 addCombo([theConstant, seedNot(celebrationMk10), seedNot(remix), seedNot(skyblock)], [
@@ -84,7 +106,7 @@ addCombo([celebrationMk10, noTraps, secretSeedsCount(4,-1, actuallyNoTraps)], [
 ]);
 
 addCombo([drunk, seedNot(noSurface)], [
-    { 'categories': ['npc'], 'description': 'The Dungeon Guardian won\'t spawn until 70 ft below the surface.' },
+    { 'categories': ['townnpc'], 'description': 'The Dungeon Guardian won\'t spawn until 70 ft below the surface.' },
 ]);
 
 addCombo([seedOr([drunk, celebrationMk10]), seedNot(skyblock), seedNot(roundLandmasses), seedNot(noSurface)], [
@@ -217,7 +239,7 @@ addCombo([seedNot(skyblock), seedOr([seedNot(noSurface), errorWorld]), celebrati
 ]);
 
 addCombo([seedOr([notTheBees, remix])], [
-    { 'categories': ['chest'], 'description': 'Water chests can spawn in any liquid, including lava or honey.' },
+    { 'categories': ['loot'], 'description': 'Water chests can spawn in any liquid, including lava or honey.' },
 ]);
 
 addCombo([seedOr([skyblock, notTheBees])], [
@@ -234,6 +256,10 @@ addCombo([seedOr([drunk, celebrationMk10])], [
 
 addCombo([seedOr([skyblock, worldIsFrozen, seedAnd([notTheBees, seedNot(remix), seedNot(theConstant)])])], [
     { 'categories': ['biome'], 'description': 'Moss caves do not spawn.' },
+]);
+
+addCombo([seedNot(seedOr([skyblock, worldIsFrozen, seedAnd([notTheBees, seedNot(remix), seedNot(theConstant)])])), forTheWorthy], [
+    { 'categories': ['biome'], 'description': 'Neon moss caves can be 50% larger.' },
 ]);
 
 addCombo([remix, seedNot(skyblock)], [
@@ -257,19 +283,19 @@ addCombo([seedNot(remix), celebrationMk10, seedNot(skyblock)], [
 ]);
 
 
-addCombo([seedOr([forTheWorthy, noTraps]), seedNot(notTheBees), seedNot(actuallyNoTraps)], [
+addCombo([seedOr([forTheWorthy, noTraps]), seedNot(notTheBees), secretSeedsCount(4,-1, actuallyNoTraps)], [
     { 'categories': ['trap'], 'description': '50% more explosive traps spawn.' },
 ]);
 
-addCombo([seedOr([notTheBees, actuallyNoTraps])], [
+addCombo([seedOr([notTheBees, seedNot(secretSeedsCount(4,-1, actuallyNoTraps))])], [
     { 'categories': ['trap'], 'description': 'No lava traps spawn.' },
 ]);
 
-addCombo([seedNot(notTheBees), seedNot(actuallyNoTraps), noTraps], [
+addCombo([seedNot(notTheBees), secretSeedsCount(4,-1, actuallyNoTraps), noTraps], [
     { 'categories': ['trap'], 'description': '5 times as many lava traps spawn.' },
 ]);
 
-addCombo([seedNot(notTheBees), seedNot(actuallyNoTraps), seedNot(noTraps), forTheWorthy], [
+addCombo([seedNot(notTheBees), secretSeedsCount(4,-1, actuallyNoTraps), seedNot(noTraps), forTheWorthy], [
     { 'categories': ['trap'], 'description': '2 times as many lava traps spawn.' },
 ]);
 
@@ -361,12 +387,16 @@ addCombo([notTheBees, forTheWorthy, seedNot(celebrationMk10), secretSeedsCount(4
     { 'categories': ['biome', 'enemyspawning'], 'description': 'Spider nests spawn across the Underworld. Spiders are 20% less likely to spawn in Underworld Spider Nests compared to regular ones.' },
 ]);
 
+addCombo([theConstant, secretSeedsCount(4,-1, noSpiderNests)], [
+    { 'categories': ['biome'], 'description': 'Spider caves generate on the surface.' },
+]);
+
 addCombo([notTheBees, seedOr([theConstant, noTraps])], [
     { 'categories': ['trap'], 'description': 'Spikes are replaced with Wooden Spikes.' },
 ]);
 
 addCombo([notTheBees, seedOr([theConstant, remix])], [
-    { 'categories': ['trap', 'npc'], 'description': 'A few Larvae are scattered around the world.' },
+    { 'categories': ['trap', 'townnpc'], 'description': 'A few Larvae are scattered around the world.' },
 ]);
 
 addCombo([notTheBees, seedNot(theConstant)], [
@@ -374,11 +404,41 @@ addCombo([notTheBees, seedNot(theConstant)], [
 ]);
 
 addCombo([notTheBees, noTraps, seedNot(theConstant), seedNot(remix)], [
-    { 'categories': ['trap', 'npc'], 'description': 'Very many Larvae are scattered around the world.' },
+    { 'categories': ['trap', 'townnpc'], 'description': 'Very many Larvae are scattered around the world.' },
+]);
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), noTraps, remix, seedOr([celebrationMk10, notTheBees])], [
+    { 'categories': ['trap'], 'description': 'There are 5 times as many dart traps.' },
+]);
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), noTraps, seedNot(celebrationMk10), seedNot(notTheBees)], [
+    { 'categories': ['trap'], 'description': 'There are 100 times as many traps.' },
+]);
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), noTraps, seedOr([celebrationMk10,notTheBees]), seedNot(remix)], [
+    { 'categories': ['trap'], 'description': 'There are 2 times as many traps.' },
+]);
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), noTraps ], [
+    { 'categories': ['trap'], 'description': 'There are 5 times as many sand traps.' },
+]);
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), seedNot(noTraps), forTheWorthy ], [
+    { 'categories': ['trap'], 'description': 'There are 50% more sand traps.' },
+]);
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), seedOr([noTraps, forTheWorthy])], [
+    { 'categories': ['trap'], 'description': 'There are 3 times as many Dead Man\'s Chests.' },
+]);
+
+
+
+addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), seedNot(noTraps), seedOr([seedNot(notTheBees), remix]), forTheWorthy], [
+    { 'categories': ['trap'], 'description': 'There are 50% more traps.' },
 ]);
 
 addCombo([notTheBees, seedNot(noTraps), seedNot(theConstant), seedNot(remix)], [
-    { 'categories': ['trap', 'npc'], 'description': 'Many Larvae are scattered around the world.' },
+    { 'categories': ['trap', 'townnpc'], 'description': 'Many Larvae are scattered around the world.' },
 ]);
 
 addCombo([notTheBees, theConstant, seedNot(remix), secretSeedsCount(4,-1, noSpiderNests), seedNot(forTheWorthy), seedNot(skyblock)], [
@@ -387,6 +447,10 @@ addCombo([notTheBees, theConstant, seedNot(remix), secretSeedsCount(4,-1, noSpid
 
 addCombo([notTheBees, theConstant, seedNot(remix), secretSeedsCount(4,-1, noSpiderNests), forTheWorthy, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'A very large number of spider nests are added.' },
+]);
+
+addCombo([seedOr([seedNot(notTheBees), celebrationMk10]), secretSeedsCount(4,-1, noSpiderNests), forTheWorthy, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The number of Spider Nests is tripled.' },
 ]);
 
 addCombo([notTheBees, seedNot(remix)], [
@@ -429,6 +493,24 @@ addCombo([seedOr([forTheWorthy, seedNot(celebrationMk10)]), remix], [
 
 addCombo([forTheWorthy], [
     { 'categories': ['shop'], 'description': 'The Steampunker, if present in pre-Hardmode, does not sell the Blend-o-matic.' },
+   { 'categories': ['trap', 'biome'], 'description': 'Clumps of ash blocks can collapse when mined.' },
+   { 'categories': ['enemyspawning'], 'description': 'Enemies spawn 20% less, but 20% more total enemies can spawn.' },
+   { 'categories': ['enemyai'], 'description': 'Many bosses have different sizes, mostly being larger.' },
+   { 'categories': ['enemyai'], 'description': 'Bosses and enemies have all For the Worth changes to stats and AI, and many bosses reflect Fallen Star projectiles from weapons.' },
+   { 'categories': ['player'], 'description': 'Difficulty increases by 1 level. If the game was previously at Master Mode, it is now at Legendary Mode.' },
+]);
+
+addCombo([seedOr([forTheWorthy,remix])], [
+   { 'categories': ['enemyai'], 'description': 'Eater of Worlds are 30% larger.' },
+]);
+
+addCombo([forTheWorthy,remix], [
+   { 'categories': ['enemyai'], 'description': 'Mechdusa replaces the Mechanical bosses, and can spawn at night once an altar is broken.' },
+]);
+
+addCombo([forTheWorthy, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'All Obsidian Brick houses are replaced by Hellstone Brick houses.' },
+    { 'categories': ['loot'], 'description': 'All Chests, except Chests in the Dungeon, have a 1/15 (6.67%) chance to contain an Angel Statue instead of the first, usually most valuable item in the Chest.' },
 ]);
 
 addCombo([celebrationMk10], [
@@ -520,6 +602,20 @@ addCombo([seedOr([celebrationMk10, theConstant]) ], [
     { 'categories': ['environment'], 'description': 'Rare clouds are more likely.' },
 ]);
 
+addCombo([theConstant], [
+    { 'categories': ['environment'], 'description': 'Specifically, rare Don\'t Starve clouds are even more likely.' },
+    { 'categories': ['environment'], 'description': 'The player takes damage when in the dark.' },
+    { 'categories': ['environment'], 'description': 'It will be pitch dark on the surface during normal nights. When a New Moon, a Full Moon, or a Blood Moon occurs, the player will be able to see things normally on the surface.' },
+]);
+
+addCombo([forTheWorthy, theConstant ], [
+    { 'categories': ['environment'], 'description': 'There is no warning before damage occurs in the darkness.' },
+]);
+
+addCombo([theConstant, seedNot(remix), seedNot(forTheWorthy), seedNot(notTheBees), seedNot(notTheBees), seedNot(noTraps)], [
+    { 'categories': ['environment'], 'description': 'The world has a sepia shader that can be turned off via the Radio Thing.' },
+]);
+
 addCombo([notTheBees, celebrationMk10, seedNot(drunk)], [
     { 'categories': ['loot'], 'description': 'Beenades can drop from trees or pots.' },
 ]);
@@ -527,6 +623,15 @@ addCombo([notTheBees, celebrationMk10, seedNot(drunk)], [
 addCombo([drunk, forTheWorthy, seedNot(remix)], [
     { 'categories': ['environment'], 'description': 'Boulder rain can occur.' },
 ]);
+
+addCombo([drunk, forTheWorthy, seedNot(remix), theConstant], [
+    { 'categories': ['environment'], 'description': 'Boulders are less frequent during Boulder Rain.' },
+]);
+
+addCombo([seedNot(remix), theConstant], [
+    { 'categories': ['environment'], 'description': 'Rain can turn off torches and campfires.' },
+]);
+
 
 addCombo([theConstant, forTheWorthy, seedNot(remix)], [
     { 'categories': ['environment'], 'description': 'Rain makes water pool on the ground.' },
@@ -537,6 +642,21 @@ addCombo([forTheWorthy], [
     { 'categories': ['trap'], 'description': 'Crispy honey block sets the player on fire, and mining it creates lava.' },
 ]);
 
+addCombo([theConstant], [
+    { 'categories': ['shop'], 'description': 'The Travelling Merchant is more likely to sell the Don\'t Starve-theme paintings.' },
+   { 'categories': ['loot'], 'description': 'Abigail\'s flower is twice as likely to try to grow.' },
+   { 'categories': ['background'], 'description': 'There is a sepia shader during world generation.' },
+   { 'categories': ['player'], 'description': 'The player experiences hunger.' },
+   { 'categories': ['droprate', 'weapon'], 'description': 'Don\'t Starve items are more likely to drop from enemies.' },
+]);
+
+addCombo([theConstant, remix], [
+    { 'categories': ['player'], 'description': 'Players get extra time before starving.' },
+]);
+
+addCombo([theConstant, seedNot(remix)], [
+    { 'categories': ['player'], 'description': 'The player makes Don\'t Starve sounds when hurt.' },
+]);
 
 addCombo([forTheWorthy, remix, seedNot(drunk)], [
     { 'categories': ['trap'], 'description': 'Mining snow and slush has a 50% chance of creating water.' },
@@ -547,14 +667,14 @@ addCombo([drunk, celebrationMk10, seedNot(remix), seedNot(notTheBees)], [
     { 'categories': ['biome'], 'description': 'The Dungeon is buried but no tree is visible above it.' },
     { 'categories': ['enemyspawning'], 'description': 'There is no Dungeon Guardian, and Skeletron does not have to be fought to enter the Dungeon.' },
     { 'categories': ['loot'], 'description': 'Palm trees drop triple wood and ash trees drop triple wood.' },
-    { 'categories': ['npc'], 'description': 'Slimefors is invincible, with maximum health, 99999 defense, and inability to be attacked.' },
+    { 'categories': ['townnpc'], 'description': 'Slimefors is invincible, with maximum health, 99999 defense, and inability to be attacked.' },
     { 'categories': ['music', 'background'], 'description': 'Snow (Otherworldly) will play during world generation, the background will be the Hallow, and heart-shaped clouds will appear.' },
     { 'categories': ['paint'], 'description': 'Sand is painted rainbow and sand walls are ainted black.' },
     { 'categories': ['loot'], 'description': 'Extra gel can drop from slimes.' },
 ]);
 
 addCombo([celebrationMk10, seedNot(skyblock)], [
-    { 'categories': ['environment'], 'description': 'A party starts when the game begins. By default, this party has a guide named Andrew, a Steampunker named Whitney, a Princess named Yorai, a Party Girl named Amanda, and a Party Bunny. Any changes to this are listed below.' },
+    { 'categories': ['townnpc', 'environment'], 'description': 'A party starts when the game begins. By default, this party has a guide named Andrew, a Steampunker named Whitney, a Princess named Yorai, a Party Girl named Amanda, and a Party Bunny. Any changes to this are listed below.' },
 ]);
 
 addCombo([celebrationMk10, seedNot(skyblock), forTheWorthy], [
@@ -562,59 +682,59 @@ addCombo([celebrationMk10, seedNot(skyblock), forTheWorthy], [
 ]);
 
 addCombo([theConstant, seedNot(remix), celebrationMk10, seedNot(skyblock)], [
-    { 'categories': ['npc'], 'description': 'The Steampunker named Whitney is replaced with a Mechanic called Korrie.' },
+    { 'categories': ['townnpc'], 'description': 'The Steampunker named Whitney is replaced with a Mechanic called Korrie.' },
 ]);
 
 addCombo([drunk, celebrationMk10, seedNot(skyblock)], [
-    { 'categories': ['npc'], 'description': 'The Party Girl named Amanda is replaced by a Painter named Jim.' },
+    { 'categories': ['townnpc'], 'description': 'The Party Girl named Amanda is replaced by a Painter named Jim.' },
 ]);
 
 addCombo([remix, celebrationMk10, seedNot(skyblock)], [
-    { 'categories': ['npc'], 'description': 'The Party Bunny is replace by a Diva Slime called Slimestar.' },
+    { 'categories': ['townnpc'], 'description': 'The Party Bunny is replace by a Diva Slime called Slimestar.' },
 ]);
 
 addCombo([seedNot(remix), drunk, celebrationMk10, seedNot(skyblock)], [
-    { 'categories': ['npc'], 'description': 'The Party Bunny is replace by a Clumsy Slime called Slimefors.' },
+    { 'categories': ['townnpc'], 'description': 'The Party Bunny is replace by a Clumsy Slime called Slimefors.' },
 ]);
 
 addCombo([worldIsInfected], [
-    { 'categories': ['npc'], 'description': 'A Shimmered Dryad replaces the Guide.' },
+    { 'categories': ['townnpc'], 'description': 'A Shimmered Dryad replaces the Guide.' },
 ]);
 
 addCombo([worldIsInfected, celebrationMk10], [
-    { 'categories': ['npc'], 'description': 'The Shimmered Dryad\'s name is Lilith.' },
+    { 'categories': ['townnpc'], 'description': 'The Shimmered Dryad\'s name is Lilith.' },
 ]);
 
 addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), vampirism], [
-    { 'categories': ['npc'], 'description': 'The Guide is replaced by a Zoologist.' },
+    { 'categories': ['townnpc'], 'description': 'The Guide is replaced by a Zoologist.' },
 ]);
 
 addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), seedNot(vampirism), remix], [
-    { 'categories': ['npc'], 'description': 'The Guide is replaced by a Tax Collector.' },
+    { 'categories': ['townnpc'], 'description': 'The Guide is replaced by a Tax Collector.' },
 ]);
 
 addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), seedNot(vampirism), seedNot(remix), theConstant, drunk], [
-    { 'categories': ['npc'], 'description': 'The Guide is replaced by a Mechanic.' },
+    { 'categories': ['townnpc'], 'description': 'The Guide is replaced by a Mechanic.' },
 ]);
 
 addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), seedNot(vampirism), seedNot(remix), seedNot(theConstant), notTheBees], [
-    { 'categories': ['npc'], 'description': 'The Guide is replaced by a Merchant.' },
+    { 'categories': ['townnpc'], 'description': 'The Guide is replaced by a Merchant.' },
 ]);
 
 addCombo([celebrationMk10, notTheBees, seedNot(remix), seedNot(skyblock)], [
-    { 'categories': ['npc'], 'description': 'The princess named Yorai is replaced by a merchant named Charles.' },
+    { 'categories': ['townnpc'], 'description': 'The princess named Yorai is replaced by a merchant named Charles.' },
 ]);
 
 addCombo([celebrationMk10, notTheBees, seedNot(remix), seedNot(skyblock)], [
-    { 'categories': ['npc'], 'description': 'The guide named Andrew is replaced by a Witch Doctor named Victor.' },
+    { 'categories': ['townnpc'], 'description': 'The guide named Andrew is replaced by a Witch Doctor named Victor.' },
 ]);
 
 addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), seedNot(vampirism), seedNot(remix), seedOr([seedNot(drunk), seedNot(theConstant)]), seedOr([seedNot(notTheBees),theConstant]), forTheWorthy], [
-    { 'categories': ['npc'], 'description': 'The Guide is replaced by a Demolitionist.' },
+    { 'categories': ['townnpc'], 'description': 'The Guide is replaced by a Demolitionist.' },
 ]);
 
 addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), seedNot(vampirism), seedNot(remix), seedNot(theConstant), seedNot(notTheBees), seedNot(forTheWorthy), drunk], [
-    { 'categories': ['npc'], 'description': 'The Guide is replaced by the Party Girl.' },
+    { 'categories': ['townnpc'], 'description': 'The Guide is replaced by the Party Girl.' },
 ]);
 
 
@@ -646,12 +766,14 @@ addCombo([drunk, seedOr([remix, seedNot(celebrationMk10), notTheBees]), theConst
     { 'categories': ['background'], 'description': 'Clouds during world generation will be replaced with Wilson, Willow, Maxwell and Charlie from Don\'t Starve.' },
 ]);
 
+//logo
 addCombo([remix], [
-    { 'categories': ['logo'], 'description': 'The logo flips upside down and rotates during world generation.' },
+    { 'categories': ['background'], 'description': 'The logo flips upside down and rotates during world generation.' },
 ]);
 
+//logo
 addCombo([seedNot(remix), drunk, seedNot(notTheBees)], [
-    { 'categories': ['logo'], 'description': 'The logo rotates during world generation.' },
+    { 'categories': ['background'], 'description': 'The logo rotates during world generation.' },
 ]);
 
 addCombo([drunk, seedOr([seedNot(celebrationMk10), notTheBees, remix]), vampirism], [
@@ -745,8 +867,16 @@ addCombo([drunk, forTheWorthy, seedNot(remix)], [
     { 'categories': ['biome'], 'description': 'The generation style and shape of the world evils flips.' },
 ]);
 
+addCombo([seedNot(skyblock), forTheWorthy, seedNot(remix)], [
+    { 'categories': ['biome'], 'description': 'Mushroom biomes are 50% larger.' },
+]);
+
+addCombo([seedOr([seedAnd([forTheWorthy, remix]),noSurface])], [
+    { 'categories': ['biome'], 'description': 'The Celestial Pillars can spawn underground.' },
+]);
+
 addCombo([theConstant, seedNot(drunk)], [
-    { 'categories': [''], 'description': 'Iron and gold will always be chosen as ores.' },
+    { 'categories': ['loot'], 'description': 'Iron and gold will always be chosen as ores.' },
 ]);
 
 addCombo([drunk, seedOr([seedNot(theConstant),remix]), seedNot(skyblock)], [
@@ -782,7 +912,12 @@ addCombo([forTheWorthy, seedNot(notTheBees), seedNot(celebrationMk10)], [
     { 'categories': ['biome', 'loot'], 'description': 'Sky islands are evil and have locked chests.' },
 ]);
 
-addCombo([remix, seedNot(drunk), seedNot(forTheWorthy)], [
+addCombo([forTheWorthy, seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'Sky islands have Locked Gold Chests.' },
+]);
+
+
+addCombo([remix, seedNot(drunk), seedNot(forTheWorthy), seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Sky islands are evil and have flesh or lesion chests.' },
 ]);
 
