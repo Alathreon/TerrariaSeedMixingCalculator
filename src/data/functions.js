@@ -48,7 +48,7 @@ const EFFECTS_CATEGORIES_NAMES = {
     'minigame': 'Minigame',
 }
 
-function addSeed(name, codes, special, feature, description) {
+function addSeed(name, codes, special, feature, image, description) {
     const theSeed = {
         'kind': 'SEED',
         'name': name,
@@ -109,4 +109,5 @@ function seedNot(seed) {
         'kind': 'NOT',
         'seed': seed
     }
+
 }
