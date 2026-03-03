@@ -622,11 +622,11 @@ addCombo([forTheWorthy, seedNot(drunk), seedNot(notTheBees), seedNot(skyblock)],
     { 'categories': ['paint'], 'description': 'Dungeon tiles are painted with a random color.' },
 ]);
 
-addCombo([remix, seedOr(seedNot(celebrationMk10, forTheWorthy), seedNot(drunk), seedNot(skyblock)], [
+addCombo([remix, seedOr([seedNot(celebrationMk10), forTheWorthy]), seedNot(drunk), seedNot(skyblock)], [
     { 'categories': ['paint'], 'description': 'The Dungeon and Jungle Temple are painted the color of the evil biome of the world.' },
 ]);
 
-addCombo([remix, seedOr(seedNot(celebrationMk10, forTheWorthy), drunk, seedNot(skyblock)], [
+addCombo([remix, seedOr([seedNot(celebrationMk10), forTheWorthy]), drunk, seedNot(skyblock)], [
     { 'categories': ['paint'], 'description': 'The Dungeon and Jungle Temple are painted the color of the evil biome on its side of the world.' },
 ]);
 
