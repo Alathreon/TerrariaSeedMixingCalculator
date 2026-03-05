@@ -663,7 +663,7 @@ addCombo([celebrationMk10, noTraps, secretSeedsCount(4,-1, actuallyNoTraps), see
 ]);
 
 
-addCombo([drunk, seedNot(noSurface)], [
+addCombo([drunk, seedNot(noSurface), seedOr([seedNot(celebrationMk10), notTheBees, remix])], [
     { 'categories': ['enemyspawning'], 'description': 'The Dungeon Guardian won\'t spawn until 70 ft below the surface.' },
 ]);
 
